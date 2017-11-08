@@ -10,6 +10,8 @@ import java.text.*;
 
 class SmartGuy {
 
+    private final int MAX_DEPTH = 10;
+
     public Socket s;
 	public BufferedReader sin;
 	public PrintWriter sout;
@@ -39,15 +41,18 @@ class SmartGuy {
             
             if (turn == me) {
                 System.out.println("Move");
-                getValidMoves(round, state);
-                
-                myMove = move();
-                //myMove = generator.nextInt(numValidMoves);        // select a move randomly
-                
+
+                myMove = new StateNode(state, true).pickMove(0, Integer.MIN_VALUE, Integer.MAX_VALUE);
+
+//                getValidMoves(round, state);
+//
+//                myMove = move();
+//                //myMove = generator.nextInt(numValidMoves);        // select a move randomly
+
                 String sel = validMoves[myMove] / 8 + "\n" + validMoves[myMove] % 8;
-                
+
                 System.out.println("Selection: " + validMoves[myMove] / 8 + ", " + validMoves[myMove] % 8);
-                
+
                 sout.println(sel);
             }
         }
@@ -241,6 +246,38 @@ class SmartGuy {
     //   player_number is 1 (for the black player) and 2 (for the white player)
     public static void main(String args[]) {
         new SmartGuy(Integer.parseInt(args[1]), args[0]);
+    }
+
+    private class StateNode
+    {
+
+        private int[][] state;
+        private boolean maximizer;
+        private int depth;
+
+        public StateNode(int[][] state, boolean myTurn)
+        {
+            this.state = state;
+            this.maximizer = myTurn;
+        }
+
+        public int pickMove(int depth, int alpha, int beta)
+        {
+            if(maximizer)
+            {
+
+            } else
+            {
+
+            }
+            return -1;
+        }
+
+        private int heuristicVal()
+        {
+            return -1;
+        }
+
     }
     
 }
