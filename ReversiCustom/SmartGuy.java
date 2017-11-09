@@ -11,7 +11,7 @@ import java.util.List;
 
 class SmartGuy {
 
-    private final int MAX_DEPTH = 10;
+    private final int MAX_DEPTH = 4;
 
     public Socket s;
     public BufferedReader sin;
@@ -48,7 +48,7 @@ class SmartGuy {
                 myMove = move();
                 //myMove = generator.nextInt(numValidMoves);        // select a move randomly
 
-                String sel = validMoves[myMove] / 8 + "\n" + validMoves[myMove] % 8;
+                String sel = myMove / 8 + "\n" + myMove % 8;
 
                 System.out.println("Selection: " + validMoves[myMove] / 8 + ", " + validMoves[myMove] % 8);
 
@@ -68,11 +68,13 @@ class SmartGuy {
         if(round < 4)
         {
             getValidMoves(round, state, me);
-            return generator.nextInt(numValidMoves);
+            int rand = generator.nextInt(numValidMoves);
+            return validMoves[rand];
         } else
         {
             StateNode rutNode = new StateNode(state, true, me, 0);
             int[] scoreMovePair = rutNode.minimax(Integer.MIN_VALUE, Integer.MAX_VALUE);
+            System.out.println("Final score-move: " + scoreMovePair[0] + ", " + scoreMovePair[1]);
             return scoreMovePair[1];
         }
     }
@@ -99,20 +101,20 @@ class SmartGuy {
                 validMoves[numValidMoves] = 4*8 + 4;
                 numValidMoves ++;
             }
-            System.out.println("Valid Moves:");
-            for (i = 0; i < numValidMoves; i++) {
-                System.out.println(validMoves[i] / 8 + ", " + validMoves[i] % 8);
-            }
+//            System.out.println("Valid Moves:");
+//            for (i = 0; i < numValidMoves; i++) {
+//                System.out.println(validMoves[i] / 8 + ", " + validMoves[i] % 8);
+//            }
         }
         else {
-            System.out.println("Valid Moves:");
+//            System.out.println("Valid Moves:");
             for (i = 0; i < 8; i++) {
                 for (j = 0; j < 8; j++) {
                     if (state[i][j] == 0) {
                         if (couldBe(state, i, j, me)) {
                             validMoves[numValidMoves] = i*8 + j;
                             numValidMoves ++;
-                            System.out.println(i + ", " + j);
+//                            System.out.println(i + ", " + j);
                         }
                     }
                 }
@@ -195,6 +197,7 @@ class SmartGuy {
                 try {
                     Thread.sleep(200);
                 } catch (InterruptedException e) {
+                    System.out.println("Error:");
                     System.out.println(e);
                 }
 
@@ -204,9 +207,9 @@ class SmartGuy {
             //System.out.println("Turn: " + turn);
             round = Integer.parseInt(sin.readLine());
             t1 = Double.parseDouble(sin.readLine());
-            System.out.println(t1);
+//            System.out.println(t1);
             t2 = Double.parseDouble(sin.readLine());
-            System.out.println(t2);
+//            System.out.println(t2);
             for (i = 0; i < 8; i++) {
                 for (j = 0; j < 8; j++) {
                     state[i][j] = Integer.parseInt(sin.readLine());
@@ -217,15 +220,15 @@ class SmartGuy {
             System.err.println("Caught IOException: " + e.getMessage());
         }
 
-        System.out.println("Turn: " + turn);
-        System.out.println("Round: " + round);
-        for (i = 7; i >= 0; i--) {
-            for (j = 0; j < 8; j++) {
-                System.out.print(state[i][j]);
-            }
-            System.out.println();
-        }
-        System.out.println();
+//        System.out.println("Turn: " + turn);
+//        System.out.println("Round: " + round);
+//        for (i = 7; i >= 0; i--) {
+//            for (j = 0; j < 8; j++) {
+//                System.out.print(state[i][j]);
+//            }
+//            System.out.println();
+//        }
+//        System.out.println();
     }
 
     public void initClient(String host) {
@@ -270,6 +273,7 @@ class SmartGuy {
          */
         public StateNode(int[][] state, boolean myTurn, int myColor, int depth)
         {
+            System.out.println("State Node created at depth " + depth);
             this.state = state;
             this.maximizer = myTurn;
             this.myColor = myColor;
@@ -331,12 +335,14 @@ class SmartGuy {
                 int[] valMove = new int[2];
                 valMove[0] = calculateScore();
                 valMove[1] = 0;
+                System.out.println("No valid moves. Return: " + valMove[0] + ", " + valMove[1]);
                 return valMove;
             } else if(depth == MAX_DEPTH)
             {
                 int[] valMove = new int[2];
                 valMove[0] = heuristicVal();
                 valMove[1] = 0;
+                System.out.println("Deepest point found. Return: " + valMove[0] + ", " + valMove[1]);
                 return valMove;
             }
             int nextColor = 0;
@@ -371,6 +377,7 @@ class SmartGuy {
                         break;
                     }
                 }
+                System.out.println("Depth " + depth + ". Return: " + bestValMove[0] + ", " + bestValMove[1]);
                 return bestValMove;
             } else
             {
@@ -378,7 +385,7 @@ class SmartGuy {
                 for(int i = 0; i < children.size(); i++)
                 {
                     int[] valueMove = children.get(i).minimax(alpha, beta);
-                    if(valueMove[0] > bestValMove[0])
+                    if(valueMove[0] < bestValMove[0])
                     {
                         bestValMove[0] = valueMove[0];
                         bestValMove[1] = moveToChild.get(i);
@@ -389,6 +396,7 @@ class SmartGuy {
                         break;
                     }
                 }
+                System.out.println("Depth " + depth + ". Return: " + bestValMove[0] + ", " + bestValMove[1]);
                 return bestValMove;
             }
         }
