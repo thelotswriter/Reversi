@@ -7,14 +7,15 @@ import java.net.*;
 import javax.swing.*;
 import java.math.*;
 import java.text.*;
+import java.util.List;
 
 class SmartGuy {
 
     private final int MAX_DEPTH = 10;
 
     public Socket s;
-	public BufferedReader sin;
-	public PrintWriter sout;
+    public BufferedReader sin;
+    public PrintWriter sout;
     Random generator = new Random();
 
     double t1, t2;
@@ -23,22 +24,22 @@ class SmartGuy {
     int state[][] = new int[8][8]; // state[0][0] is the bottom left corner of the board (on the GUI)
     int turn = -1;
     int round;
-    
+
     int validMoves[] = new int[64];
     int numValidMoves;
-    
-    
+
+
     // main function that (1) establishes a connection with the server, and then plays whenever it is this player's turn
     public SmartGuy(int _me, String host) {
         me = _me;
         initClient(host);
 
         int myMove;
-        
+
         while (true) {
             System.out.println("Read");
             readMessage();
-            
+
             if (turn == me) {
                 System.out.println("Move");
 
@@ -56,8 +57,8 @@ class SmartGuy {
         }
         //while (turn == me) {
         //    System.out.println("My turn");
-            
-            //readMessage();
+
+        //readMessage();
         //}
     }
 
@@ -66,7 +67,7 @@ class SmartGuy {
     {
         if(round < 4)
         {
-            getValidMoves(round + depth, state, me);
+            getValidMoves(round, state, me);
             return generator.nextInt(numValidMoves);
         } else
         {
@@ -75,11 +76,11 @@ class SmartGuy {
             return scoreMovePair[1];
         }
     }
-    
+
     // generates the set of valid moves for the player; returns a list of valid moves (validMoves)
     private void getValidMoves(int round, int state[][], int me) {
         int i, j;
-        
+
         numValidMoves = 0;
         if (round < 4) {
             if (state[3][3] == 0) {
@@ -117,31 +118,31 @@ class SmartGuy {
                 }
             }
         }
-        
-        
+
+
         //if (round > 3) {
         //    System.out.println("checking out");
         //    System.exit(1);
         //}
     }
-    
+
     private boolean checkDirection(int state[][], int row, int col, int incx, int incy, int me) {
         int sequence[] = new int[7];
         int seqLen;
         int i, r, c;
-        
+
         seqLen = 0;
         for (i = 1; i < 8; i++) {
             r = row+incy*i;
             c = col+incx*i;
-        
+
             if ((r < 0) || (r > 7) || (c < 0) || (c > 7))
                 break;
-        
+
             sequence[seqLen] = state[r][c];
             seqLen++;
         }
-        
+
         int count = 0;
         for (i = 0; i < seqLen; i++) {
             if (me == 1) {
@@ -163,43 +164,43 @@ class SmartGuy {
                 }
             }
         }
-        
+
         return false;
     }
 
     private boolean couldBe(int state[][], int row, int col, int me) {
         int incx, incy;
-        
+
         for (incx = -1; incx < 2; incx++) {
             for (incy = -1; incy < 2; incy++) {
                 if ((incx == 0) && (incy == 0))
                     continue;
-            
+
                 if (checkDirection(state, row, col, incx, incy, me))
                     return true;
             }
         }
-        
+
         return false;
     }
-    
+
     public void readMessage() {
         int i, j;
         String status;
         try {
             //System.out.println("Ready to read again");
             turn = Integer.parseInt(sin.readLine());
-            
+
             if (turn == -999) {
                 try {
                     Thread.sleep(200);
                 } catch (InterruptedException e) {
                     System.out.println(e);
                 }
-                
+
                 System.exit(1);
             }
-            
+
             //System.out.println("Turn: " + turn);
             round = Integer.parseInt(sin.readLine());
             t1 = Double.parseDouble(sin.readLine());
@@ -215,7 +216,7 @@ class SmartGuy {
         } catch (IOException e) {
             System.err.println("Caught IOException: " + e.getMessage());
         }
-        
+
         System.out.println("Turn: " + turn);
         System.out.println("Round: " + round);
         for (i = 7; i >= 0; i--) {
@@ -226,15 +227,15 @@ class SmartGuy {
         }
         System.out.println();
     }
-    
+
     public void initClient(String host) {
         int portNumber = 3333+me;
-        
+
         try {
-			s = new Socket(host, portNumber);
+            s = new Socket(host, portNumber);
             sout = new PrintWriter(s.getOutputStream(), true);
-			sin = new BufferedReader(new InputStreamReader(s.getInputStream()));
-            
+            sin = new BufferedReader(new InputStreamReader(s.getInputStream()));
+
             String info = sin.readLine();
             System.out.println(info);
         } catch (IOException e) {
@@ -242,7 +243,7 @@ class SmartGuy {
         }
     }
 
-    
+
     // compile on your machine: javac *.java
     // call: java SmartGuy [ipaddress] [player_number]
     //   ipaddress is the ipaddress on the computer the server was launched on.  Enter "localhost" if it is on the same computer
@@ -277,7 +278,7 @@ class SmartGuy {
             moveToChild = new ArrayList<>();
         }
 
-//        /**
+        //        /**
 //         * Picks the next move to make from the given state
 //         * @return A 1D array whose first value is the expected score and whose second value is the move to get there
 //         */
@@ -289,23 +290,23 @@ class SmartGuy {
 //                return generator.nextInt(numValidMoves);
 //            } else
 //            {
-                List<StateNode> children = new ArrayList<>();
-                List<Integer> moveToChild = new ArrayList<>();
-                int nextColor = 0;
-                if(myColor == 1)
-                {
-                    nextColor = 2;
-                } else
-                {
-                    nextColor = 1;
-                }
-                for(int i = 0; i < numValidMoves; i++)
-                {
-                    int[][] nextState = calculateNextState(validMoves[i]);
-                    StateNode child = new StateNode(nextState, !maximizer, nextColor, depth + 1);
-                    children.add(child);
-                    moveToChild.add(validMoves[i]);
-                }
+//        List<StateNode> children = new ArrayList<>();
+//        List<Integer> moveToChild = new ArrayList<>();
+//        int nextColor = 0;
+//                if(myColor == 1)
+//        {
+//            nextColor = 2;
+//        } else
+//        {
+//            nextColor = 1;
+//        }
+//                for(int i = 0; i < numValidMoves; i++)
+//        {
+//            int[][] nextState = calculateNextState(validMoves[i]);
+//            StateNode child = new StateNode(nextState, !maximizer, nextColor, depth + 1);
+//            children.add(child);
+//            moveToChild.add(validMoves[i]);
+//        }
 //                int bestScore = Integer.MIN_VALUE;
 //                int bestChildIndex = -1;
 //                for(int i = 0; i < children.size(); i++)
@@ -322,15 +323,21 @@ class SmartGuy {
 //            return -1;
 //        }
 
-        private int minimax(int alpha, int beta)
+        private int[] minimax(int alpha, int beta)
         {
             getValidMoves(round + depth, state, myColor);
             if(numValidMoves == 0)
             {
-                return {calculateScore(), 0};
+                int[] valMove = new int[2];
+                valMove[0] = calculateScore();
+                valMove[1] = 0;
+                return valMove;
             } else if(depth == MAX_DEPTH)
             {
-                return {heuristicVal(), 0};
+                int[] valMove = new int[2];
+                valMove[0] = heuristicVal();
+                valMove[1] = 0;
+                return valMove;
             }
             int nextColor = 0;
             if(myColor == 1)
@@ -402,14 +409,26 @@ class SmartGuy {
                 }
             }
             int[] parsedMove = {move / 8, move % 8};
-            checkDirection(nextState, parsedMove, {1,0});
-            checkDirection(nextState, parsedMove, {1,1});
-            checkDirection(nextState, parsedMove, {1,-1});
-            checkDirection(nextState, parsedMove, {0,1});
-            checkDirection(nextState, parsedMove, {0,-1});
-            checkDirection(nextState, parsedMove, {-1,1});
-            checkDirection(nextState, parsedMove, {-1,0});
-            checkDirection(nextState, parsedMove, {-1,-1});
+            int[] m = new int[2];
+            m[0] = 1;
+            m[1] = 0;
+            checkDirection(nextState, parsedMove, m);
+            m[1] = 1;
+            checkDirection(nextState, parsedMove, m);
+            m[1] = -1;
+            checkDirection(nextState, parsedMove, m);
+            m[0] = 0;
+            m[1] = 1;
+            checkDirection(nextState, parsedMove, m);
+            m[1] = -1;
+            checkDirection(nextState, parsedMove, m);
+            m[0] = -1;
+            m[1] = 1;
+            checkDirection(nextState, parsedMove, m);
+            m[1] = 0;
+            checkDirection(nextState, parsedMove, m);
+            m[1] = -1;
+            checkDirection(nextState, parsedMove, m);
             return nextState;
         }
 
@@ -427,20 +446,23 @@ class SmartGuy {
             List<int[]> flippablePoints = new ArrayList<>(6);
             while (iteratorPosition[0] >= 0 && iteratorPosition[0] < 8 && iteratorPosition[1] >= 0 && iteratorPosition[1] < 8)
             {
-                if(state[iteratorPosition[0]][iteratorPosition[1]] == 0)
+                if(board[iteratorPosition[0]][iteratorPosition[1]] == 0)
                 {
                     return;
                 }
-                if(state[iteratorPosition[0]][iteratorPosition[1]] == myColor)
+                if(board[iteratorPosition[0]][iteratorPosition[1]] == myColor)
                 {
                     for(int[] point : flippablePoints)
                     {
-                        state[point[0]][point[1]] = myColor;
+                        board[point[0]][point[1]] = myColor;
                     }
                     return;
                 } else
                 {
-                    flippablePoints.add({iteratorPosition[0],iteratorPosition[1]});
+                    int[] point = new int[2];
+                    point[0] = iteratorPosition[0];
+                    point[1] = iteratorPosition[1];
+                    flippablePoints.add(point);
                 }
                 iteratorPosition[0] += direction[0];
                 iteratorPosition[1] += direction[1];
@@ -471,10 +493,6 @@ class SmartGuy {
             return myVal;
         }
 
-        public int getPrevMove()
-        {
-            return prevMove;
-        }
     }
-    
+
 }
