@@ -42,12 +42,10 @@ class SmartGuy {
             if (turn == me) {
                 System.out.println("Move");
 
-                myMove = new StateNode(state, true).pickMove(0, Integer.MIN_VALUE, Integer.MAX_VALUE);
+//                myMove = new StateNode(state, true).pickMove(0, Integer.MIN_VALUE, Integer.MAX_VALUE);
 
-//                getValidMoves(round, state);
-//
-//                myMove = move();
-//                //myMove = generator.nextInt(numValidMoves);        // select a move randomly
+                myMove = move();
+                //myMove = generator.nextInt(numValidMoves);        // select a move randomly
 
                 String sel = validMoves[myMove] / 8 + "\n" + validMoves[myMove] % 8;
 
@@ -62,19 +60,24 @@ class SmartGuy {
             //readMessage();
         //}
     }
-    
-    // You should modify this function
-    // validMoves is a list of valid locations that you could place your "stone" on this turn
-    // Note that "state" is a global variable 2D list that shows the state of the game
-    private int move() {
-        // just move randomly for now
-        int myMove = generator.nextInt(numValidMoves);
-        
-        return myMove;
+
+
+    private int move()
+    {
+        if(round < 4)
+        {
+            getValidMoves(round + depth, state, me);
+            return generator.nextInt(numValidMoves);
+        } else
+        {
+            StateNode rutNode = new StateNode(state, true, me, 0);
+            int[] scoreMovePair = rutNode.minimax(Integer.MIN_VALUE, Integer.MAX_VALUE);
+            return scoreMovePair[1];
+        }
     }
     
     // generates the set of valid moves for the player; returns a list of valid moves (validMoves)
-    private void getValidMoves(int round, int state[][]) {
+    private void getValidMoves(int round, int state[][], int me) {
         int i, j;
         
         numValidMoves = 0;
@@ -105,7 +108,7 @@ class SmartGuy {
             for (i = 0; i < 8; i++) {
                 for (j = 0; j < 8; j++) {
                     if (state[i][j] == 0) {
-                        if (couldBe(state, i, j)) {
+                        if (couldBe(state, i, j, me)) {
                             validMoves[numValidMoves] = i*8 + j;
                             numValidMoves ++;
                             System.out.println(i + ", " + j);
@@ -122,7 +125,7 @@ class SmartGuy {
         //}
     }
     
-    private boolean checkDirection(int state[][], int row, int col, int incx, int incy) {
+    private boolean checkDirection(int state[][], int row, int col, int incx, int incy, int me) {
         int sequence[] = new int[7];
         int seqLen;
         int i, r, c;
@@ -163,8 +166,8 @@ class SmartGuy {
         
         return false;
     }
-    
-    private boolean couldBe(int state[][], int row, int col) {
+
+    private boolean couldBe(int state[][], int row, int col, int me) {
         int incx, incy;
         
         for (incx = -1; incx < 2; incx++) {
@@ -172,7 +175,7 @@ class SmartGuy {
                 if ((incx == 0) && (incy == 0))
                     continue;
             
-                if (checkDirection(state, row, col, incx, incy))
+                if (checkDirection(state, row, col, incx, incy, me))
                     return true;
             }
         }
@@ -254,30 +257,224 @@ class SmartGuy {
         private int[][] state;
         private boolean maximizer;
         private int depth;
+        private int myColor;
+        private List<StateNode> children;
+        private List<Integer> moveToChild;
 
-        public StateNode(int[][] state, boolean myTurn)
+        /**
+         * Creates a new state node
+         * @param state The state the node represents
+         * @param myTurn Whether the current turn is the player's (maximizer's) turn
+         * @param myColor 1 for black, 2 for white (0 for no piece)
+         */
+        public StateNode(int[][] state, boolean myTurn, int myColor, int depth)
         {
             this.state = state;
             this.maximizer = myTurn;
+            this.myColor = myColor;
+            this.depth = depth;
+            children = new ArrayList<>();
+            moveToChild = new ArrayList<>();
         }
 
-        public int pickMove(int depth, int alpha, int beta)
-        {
-            if(maximizer)
-            {
+//        /**
+//         * Picks the next move to make from the given state
+//         * @return A 1D array whose first value is the expected score and whose second value is the move to get there
+//         */
+//        public int[] pickMove(int alpha, int beta)
+//        {
+//            getValidMoves(round + depth, state, myColor);
+//            if(round < 4)
+//            {
+//                return generator.nextInt(numValidMoves);
+//            } else
+//            {
+                List<StateNode> children = new ArrayList<>();
+                List<Integer> moveToChild = new ArrayList<>();
+                int nextColor = 0;
+                if(myColor == 1)
+                {
+                    nextColor = 2;
+                } else
+                {
+                    nextColor = 1;
+                }
+                for(int i = 0; i < numValidMoves; i++)
+                {
+                    int[][] nextState = calculateNextState(validMoves[i]);
+                    StateNode child = new StateNode(nextState, !maximizer, nextColor, depth + 1);
+                    children.add(child);
+                    moveToChild.add(validMoves[i]);
+                }
+//                int bestScore = Integer.MIN_VALUE;
+//                int bestChildIndex = -1;
+//                for(int i = 0; i < children.size(); i++)
+//                {
+//                    int score = children.get(i).minimax(Integer.MIN_VALUE, Integer.MAX_VALUE);
+//                    if(score > bestScore)
+//                    {
+//                        bestChildIndex = i;
+//                        bestScore = score;
+//                    }
+//                }
+//                return moveToChild.get(bestChildIndex);
+//            }
+//            return -1;
+//        }
 
+        private int minimax(int alpha, int beta)
+        {
+            getValidMoves(round + depth, state, myColor);
+            if(numValidMoves == 0)
+            {
+                return {calculateScore(), 0};
+            } else if(depth == MAX_DEPTH)
+            {
+                return {heuristicVal(), 0};
+            }
+            int nextColor = 0;
+            if(myColor == 1)
+            {
+                nextColor = 2;
             } else
             {
-
+                nextColor = 1;
             }
-            return -1;
+            for(int i = 0; i < numValidMoves; i++)
+            {
+                int[][] nextState = calculateNextState(validMoves[i]);
+                StateNode child = new StateNode(nextState, !maximizer, nextColor, depth + 1);
+                children.add(child);
+                moveToChild.add(validMoves[i]);
+            }
+            if(maximizer)
+            {
+                int bestValMove[] = {Integer.MIN_VALUE, 0};
+                for(int i = 0; i < children.size(); i++)
+                {
+                    int[] valueMove = children.get(i).minimax(alpha, beta);
+                    if(valueMove[0] > bestValMove[0])
+                    {
+                        bestValMove[0] = valueMove[0];
+                        bestValMove[1] = moveToChild.get(i);
+                    }
+                    alpha = Math.max(alpha, bestValMove[0]);
+                    if(beta <= alpha)
+                    {
+                        break;
+                    }
+                }
+                return bestValMove;
+            } else
+            {
+                int[] bestValMove = {Integer.MAX_VALUE,0};
+                for(int i = 0; i < children.size(); i++)
+                {
+                    int[] valueMove = children.get(i).minimax(alpha, beta);
+                    if(valueMove[0] > bestValMove[0])
+                    {
+                        bestValMove[0] = valueMove[0];
+                        bestValMove[1] = moveToChild.get(i);
+                    }
+                    alpha = Math.max(alpha, bestValMove[0]);
+                    if(beta <= alpha)
+                    {
+                        break;
+                    }
+                }
+                return bestValMove;
+            }
+        }
+
+        /**
+         * Calculates the next state given the move taken
+         * @param move The move taken
+         * @return The next state
+         */
+        private int[][] calculateNextState(int move)
+        {
+            int[][] nextState = new int[state.length][state[0].length];
+            for(int i = 0; i < state.length; i++)
+            {
+                for(int j = 0; j < state[0].length; j++)
+                {
+                    nextState[i][j] = state[i][j];
+                }
+            }
+            int[] parsedMove = {move / 8, move % 8};
+            checkDirection(nextState, parsedMove, {1,0});
+            checkDirection(nextState, parsedMove, {1,1});
+            checkDirection(nextState, parsedMove, {1,-1});
+            checkDirection(nextState, parsedMove, {0,1});
+            checkDirection(nextState, parsedMove, {0,-1});
+            checkDirection(nextState, parsedMove, {-1,1});
+            checkDirection(nextState, parsedMove, {-1,0});
+            checkDirection(nextState, parsedMove, {-1,-1});
+            return nextState;
+        }
+
+        /**
+         * Checks the given direction. If the tiles should be flipped, flip them
+         * @param board The board in its current state
+         * @param start The starting location
+         * @param direction The direction going (two values: -1,0,1)
+         */
+        private void checkDirection(int[][] board, int[] start, int[] direction)
+        {
+            int[] iteratorPosition = new int[2];
+            iteratorPosition[0] = start[0] + direction[0];
+            iteratorPosition[1] = start[1] + direction[1];
+            List<int[]> flippablePoints = new ArrayList<>(6);
+            while (iteratorPosition[0] >= 0 && iteratorPosition[0] < 8 && iteratorPosition[1] >= 0 && iteratorPosition[1] < 8)
+            {
+                if(state[iteratorPosition[0]][iteratorPosition[1]] == 0)
+                {
+                    return;
+                }
+                if(state[iteratorPosition[0]][iteratorPosition[1]] == myColor)
+                {
+                    for(int[] point : flippablePoints)
+                    {
+                        state[point[0]][point[1]] = myColor;
+                    }
+                    return;
+                } else
+                {
+                    flippablePoints.add({iteratorPosition[0],iteratorPosition[1]});
+                }
+                iteratorPosition[0] += direction[0];
+                iteratorPosition[1] += direction[1];
+            }
+        }
+
+        private int calculateScore()
+        {
+            int myVal = 0;
+            for(int i = 0; i < 8; i++)
+                for(int j = 0; j < 8; j++)
+                    if (state[i][j] == myColor)
+                    {
+                        myVal++;
+                    }
+            return myVal;
         }
 
         private int heuristicVal()
         {
-            return -1;
+            int myVal = 0;
+            for(int i = 0; i < 8; i++)
+                for(int j = 0; j < 8; j++)
+                    if (state[i][j] == myColor)
+                    {
+                        myVal++;
+                    }
+            return myVal;
         }
 
+        public int getPrevMove()
+        {
+            return prevMove;
+        }
     }
     
 }

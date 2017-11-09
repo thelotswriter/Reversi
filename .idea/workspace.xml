@@ -18,13 +18,31 @@
       <file leaf-file-name="SmartGuy.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="58">
-              <caret line="200" column="17" lean-forward="false" selection-start-line="200" selection-start-column="17" selection-end-line="200" selection-end-column="17" />
+            <state relative-caret-position="379">
+              <caret line="376" column="60" lean-forward="false" selection-start-line="376" selection-start-column="60" selection-end-line="376" selection-end-column="60" />
               <folding>
-                <element signature="e#7563#7564#0" expanded="true" />
-                <element signature="e#7627#7628#0" expanded="true" />
-                <element signature="e#8141#8142#0" expanded="true" />
-                <element signature="e#8174#8175#0" expanded="true" />
+                <element signature="method#getValidMoves#0;class#SmartGuy#0" expanded="false" />
+                <element signature="method#checkDirection#0;class#SmartGuy#0" expanded="false" />
+                <element signature="method#couldBe#0;class#SmartGuy#0" expanded="false" />
+                <element signature="method#readMessage#0;class#SmartGuy#0" expanded="false" />
+                <element signature="method#initClient#0;class#SmartGuy#0" expanded="false" />
+                <element signature="method#calculateNextState#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
+                <element signature="method#checkDirection#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
+                <element signature="e#15645#15646#0" expanded="true" />
+                <element signature="e#15684#15685#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="RandomGuy.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/ReversiRandom_Java/RandomGuy.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-2199">
+              <caret line="71" column="51" lean-forward="false" selection-start-line="71" selection-start-column="46" selection-end-line="71" selection-end-column="51" />
+              <folding>
+                <element signature="e#7478#7479#0" expanded="true" />
+                <element signature="e#7543#7544#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -37,6 +55,12 @@
       <find>RandomGuy</find>
       <find>generator</find>
       <find>round</find>
+      <find>state</find>
+      <find>white</find>
+      <find>player_number</find>
+      <find>turn</find>
+      <find>getValidMoves</find>
+      <find>myMove</find>
     </findStrings>
     <replaceStrings>
       <replace>SmartGuy</replace>
@@ -86,35 +110,35 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="Reversi2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Reversi2" type="462c0819:PsiDirectoryNode" />
+              <item name="Reversi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Reversi" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Reversi2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Reversi2" type="462c0819:PsiDirectoryNode" />
+              <item name="Reversi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Reversi" type="462c0819:PsiDirectoryNode" />
               <item name="ReversiCustom" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Reversi2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Reversi2" type="462c0819:PsiDirectoryNode" />
-              <item name="ReversiHuman" type="462c0819:PsiDirectoryNode" />
+              <item name="Reversi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Reversi" type="462c0819:PsiDirectoryNode" />
+              <item name="ReversiRandom_Java" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Reversi2" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Reversi2" type="462c0819:PsiDirectoryNode" />
-              <item name="ReversiRandom_Java" type="462c0819:PsiDirectoryNode" />
+              <item name="Reversi" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Reversi" type="462c0819:PsiDirectoryNode" />
+              <item name="ReversiServer" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -242,6 +266,7 @@
       <workItem from="1510119246472" duration="1715000" />
       <workItem from="1510125853515" duration="1176000" />
       <workItem from="1510172487423" duration="2156000" />
+      <workItem from="1510176891630" duration="9703000" />
     </task>
     <task id="LOCAL-00001" summary="Now includes a custom, SmartGuy agent (currently just a copy of RandomGuy)">
       <created>1510126431114</created>
@@ -254,14 +279,14 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="5047000" />
+    <option name="totallyTimeSpent" value="14750000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -272,7 +297,7 @@
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2521322" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -284,6 +309,7 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Messages" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -304,11 +330,32 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="method#getValidMoves#0;class#SmartGuy#0" expanded="false" />
+            <element signature="method#checkDirection#0;class#SmartGuy#0" expanded="false" />
+            <element signature="method#couldBe#0;class#SmartGuy#0" expanded="false" />
+            <element signature="method#readMessage#0;class#SmartGuy#0" expanded="false" />
+            <element signature="method#initClient#0;class#SmartGuy#0" expanded="false" />
+            <element signature="method#calculateNextState#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
+            <element signature="method#checkDirection#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
+            <element signature="e#15645#15646#0" expanded="true" />
+            <element signature="e#15684#15685#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/ReversiRandom_Java/RandomGuy.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="170">
           <caret line="10" column="6" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-          <folding />
+          <folding>
+            <element signature="e#7478#7479#0" expanded="true" />
+            <element signature="e#7543#7544#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -317,10 +364,15 @@
         <state relative-caret-position="4114">
           <caret line="242" column="20" lean-forward="false" selection-start-line="242" selection-start-column="20" selection-end-line="242" selection-end-column="20" />
           <folding>
-            <element signature="e#7563#7564#0" expanded="true" />
-            <element signature="e#7627#7628#0" expanded="true" />
-            <element signature="e#8141#8142#0" expanded="true" />
-            <element signature="e#8174#8175#0" expanded="true" />
+            <element signature="method#getValidMoves#0;class#SmartGuy#0" expanded="false" />
+            <element signature="method#checkDirection#0;class#SmartGuy#0" expanded="false" />
+            <element signature="method#couldBe#0;class#SmartGuy#0" expanded="false" />
+            <element signature="method#readMessage#0;class#SmartGuy#0" expanded="false" />
+            <element signature="method#initClient#0;class#SmartGuy#0" expanded="false" />
+            <element signature="method#calculateNextState#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
+            <element signature="method#checkDirection#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
+            <element signature="e#15645#15646#0" expanded="true" />
+            <element signature="e#15684#15685#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -329,27 +381,38 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="e#7478#7479#0" expanded="true" />
+            <element signature="e#7543#7544#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ReversiRandom_Java/RandomGuy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="34">
-          <caret line="10" column="6" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-          <folding />
+        <state relative-caret-position="-2199">
+          <caret line="71" column="51" lean-forward="false" selection-start-line="71" selection-start-column="46" selection-end-line="71" selection-end-column="51" />
+          <folding>
+            <element signature="e#7478#7479#0" expanded="true" />
+            <element signature="e#7543#7544#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="58">
-          <caret line="200" column="17" lean-forward="false" selection-start-line="200" selection-start-column="17" selection-end-line="200" selection-end-column="17" />
+        <state relative-caret-position="379">
+          <caret line="376" column="60" lean-forward="false" selection-start-line="376" selection-start-column="60" selection-end-line="376" selection-end-column="60" />
           <folding>
-            <element signature="e#7563#7564#0" expanded="true" />
-            <element signature="e#7627#7628#0" expanded="true" />
-            <element signature="e#8141#8142#0" expanded="true" />
-            <element signature="e#8174#8175#0" expanded="true" />
+            <element signature="method#getValidMoves#0;class#SmartGuy#0" expanded="false" />
+            <element signature="method#checkDirection#0;class#SmartGuy#0" expanded="false" />
+            <element signature="method#couldBe#0;class#SmartGuy#0" expanded="false" />
+            <element signature="method#readMessage#0;class#SmartGuy#0" expanded="false" />
+            <element signature="method#initClient#0;class#SmartGuy#0" expanded="false" />
+            <element signature="method#calculateNextState#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
+            <element signature="method#checkDirection#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
+            <element signature="e#15645#15646#0" expanded="true" />
+            <element signature="e#15684#15685#0" expanded="true" />
           </folding>
         </state>
       </provider>
