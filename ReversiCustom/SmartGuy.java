@@ -11,7 +11,7 @@ import java.util.List;
 
 class SmartGuy {
 
-    private final int MAX_DEPTH = 4;
+    private final int MAX_DEPTH = 5;
 
     public Socket s;
     public BufferedReader sin;
@@ -73,9 +73,9 @@ class SmartGuy {
         } else
         {
             StateNode rutNode = new StateNode(state, true, me, 0);
-            int[] scoreMovePair = rutNode.minimax(Integer.MIN_VALUE, Integer.MAX_VALUE);
+            double[] scoreMovePair = rutNode.minimax(Double.MIN_VALUE, Double.MAX_VALUE);
             System.out.println("Final score-move: " + scoreMovePair[0] + ", " + scoreMovePair[1]);
-            return scoreMovePair[1];
+            return ((int) scoreMovePair[1]);
         }
     }
 
@@ -327,19 +327,27 @@ class SmartGuy {
 //            return -1;
 //        }
 
-        private int[] minimax(int alpha, int beta)
+        private double[] minimax(double alpha, double beta)
         {
             getValidMoves(round + depth, state, myColor);
             if(numValidMoves == 0)
             {
-                int[] valMove = new int[2];
-                valMove[0] = calculateScore();
+                double[] valMove = new double[2];
+                double scoreRatio = calculateScoreRatio();
+                if(scoreRatio < 1)
+                {
+                    valMove[0] = 0;
+                } else
+                {
+                    valMove[0] = Double.MAX_VALUE;
+                }
+//                valMove[0] = calculateScore();
                 valMove[1] = 0;
                 System.out.println("No valid moves. Return: " + valMove[0] + ", " + valMove[1]);
                 return valMove;
             } else if(depth == MAX_DEPTH)
             {
-                int[] valMove = new int[2];
+                double[] valMove = new double[2];
                 valMove[0] = heuristicVal();
                 valMove[1] = 0;
                 System.out.println("Deepest point found. Return: " + valMove[0] + ", " + valMove[1]);
@@ -362,10 +370,10 @@ class SmartGuy {
             }
             if(maximizer)
             {
-                int bestValMove[] = {Integer.MIN_VALUE, 0};
+                double[] bestValMove = {Double.MIN_VALUE, 0};
                 for(int i = 0; i < children.size(); i++)
                 {
-                    int[] valueMove = children.get(i).minimax(alpha, beta);
+                    double[] valueMove = children.get(i).minimax(alpha, beta);
                     if(valueMove[0] > bestValMove[0])
                     {
                         bestValMove[0] = valueMove[0];
@@ -381,10 +389,10 @@ class SmartGuy {
                 return bestValMove;
             } else
             {
-                int[] bestValMove = {Integer.MAX_VALUE,0};
+                double[] bestValMove = {Double.MAX_VALUE,0};
                 for(int i = 0; i < children.size(); i++)
                 {
-                    int[] valueMove = children.get(i).minimax(alpha, beta);
+                    double[] valueMove = children.get(i).minimax(alpha, beta);
                     if(valueMove[0] < bestValMove[0])
                     {
                         bestValMove[0] = valueMove[0];
@@ -477,28 +485,85 @@ class SmartGuy {
             }
         }
 
-        private int calculateScore()
+//        private int calculateScore()
+//        {
+//            int myVal = 0;
+//            for(int i = 0; i < 8; i++)
+//                for(int j = 0; j < 8; j++)
+//                    if (state[i][j] == myColor)
+//                    {
+//                        myVal++;
+//                    }
+//            return myVal;
+//        }
+
+        private double heuristicVal()
         {
-            int myVal = 0;
-            for(int i = 0; i < 8; i++)
-                for(int j = 0; j < 8; j++)
-                    if (state[i][j] == myColor)
-                    {
-                        myVal++;
-                    }
+            double myVal = calculateScoreRatio();
+//            boolean check07 = true;
+//            boolean check70 = true;
+//            boolean check77 = true;
+//            if(state[0][0] == me)
+//            {
+//                int[] stateIter = new int[2];
+//                stateIter[0] = 0;
+//                stateIter[1] = 0;
+//                int maxDist = 7;
+//                for(int i = 0; i < 8; i++)
+//                {
+//                    for(int j = 0; j < maxDist; j++)
+//                    {
+//
+//                    }
+//                }
+//            }
+//            if(state[0][7] == me && check07)
+//            {
+//                myVal++;
+//            }
+//            if(state[7][0] == me && check70)
+//            {
+//                myVal++;
+//            }
+//            if(state[7][7] == me && check77)
+//            {
+//                myVal++;
+//            }
             return myVal;
         }
 
-        private int heuristicVal()
+        private double calculateScoreRatio()
         {
-            int myVal = 0;
+            int notMe = 0;
+            if(me == 1)
+            {
+                notMe = 2;
+            } else
+            {
+                notMe = 1;
+            }
+            double myScore = 0;
+            double theirScore = 0;
             for(int i = 0; i < 8; i++)
+            {
                 for(int j = 0; j < 8; j++)
-                    if (state[i][j] == myColor)
+                {
+                    if(state[i][j] == me)
                     {
-                        myVal++;
+                        myScore++;
+                    } else if(state[i][j] == notMe)
+                    {
+                        theirScore++;
                     }
-            return myVal;
+                }
+            }
+            if(theirScore == 0)
+            {
+                return Double.MAX_VALUE;
+            } else
+            {
+                return myScore / theirScore;
+            }
         }
 
     }
