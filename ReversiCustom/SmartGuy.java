@@ -11,7 +11,7 @@ import java.util.List;
 
 class SmartGuy {
 
-    private final int MAX_DEPTH = 5;
+    private final int MAX_DEPTH = 6;
 
     public Socket s;
     public BufferedReader sin;
@@ -282,51 +282,6 @@ class SmartGuy {
             moveToChild = new ArrayList<>();
         }
 
-        //        /**
-//         * Picks the next move to make from the given state
-//         * @return A 1D array whose first value is the expected score and whose second value is the move to get there
-//         */
-//        public int[] pickMove(int alpha, int beta)
-//        {
-//            getValidMoves(round + depth, state, myColor);
-//            if(round < 4)
-//            {
-//                return generator.nextInt(numValidMoves);
-//            } else
-//            {
-//        List<StateNode> children = new ArrayList<>();
-//        List<Integer> moveToChild = new ArrayList<>();
-//        int nextColor = 0;
-//                if(myColor == 1)
-//        {
-//            nextColor = 2;
-//        } else
-//        {
-//            nextColor = 1;
-//        }
-//                for(int i = 0; i < numValidMoves; i++)
-//        {
-//            int[][] nextState = calculateNextState(validMoves[i]);
-//            StateNode child = new StateNode(nextState, !maximizer, nextColor, depth + 1);
-//            children.add(child);
-//            moveToChild.add(validMoves[i]);
-//        }
-//                int bestScore = Integer.MIN_VALUE;
-//                int bestChildIndex = -1;
-//                for(int i = 0; i < children.size(); i++)
-//                {
-//                    int score = children.get(i).minimax(Integer.MIN_VALUE, Integer.MAX_VALUE);
-//                    if(score > bestScore)
-//                    {
-//                        bestChildIndex = i;
-//                        bestScore = score;
-//                    }
-//                }
-//                return moveToChild.get(bestChildIndex);
-//            }
-//            return -1;
-//        }
-
         private double[] minimax(double alpha, double beta)
         {
             getValidMoves(round + depth, state, myColor);
@@ -351,6 +306,12 @@ class SmartGuy {
                 valMove[0] = heuristicVal();
                 valMove[1] = 0;
                 System.out.println("Deepest point found. Return: " + valMove[0] + ", " + valMove[1]);
+                return valMove;
+            } else if(depth == 0 && numValidMoves == 1)
+            {
+                double[] valMove = new double[2];
+                valMove[0] = 0;
+                valMove[1] = validMoves[0];
                 return valMove;
             }
             int nextColor = 0;
@@ -484,18 +445,6 @@ class SmartGuy {
                 iteratorPosition[1] += direction[1];
             }
         }
-
-//        private int calculateScore()
-//        {
-//            int myVal = 0;
-//            for(int i = 0; i < 8; i++)
-//                for(int j = 0; j < 8; j++)
-//                    if (state[i][j] == myColor)
-//                    {
-//                        myVal++;
-//                    }
-//            return myVal;
-//        }
 
         private double heuristicVal()
         {
