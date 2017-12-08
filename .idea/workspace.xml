@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a45bc7d0-f296-4bd8-b42d-3956a99b67ae" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/ReversiCustom/SmartGuy$StateNode.class" afterPath="$PROJECT_DIR$/src/ReversiCustom/SmartGuy$StateNode.class" />
+      <change beforePath="$PROJECT_DIR$/src/ReversiCustom/SmartGuy.class" afterPath="$PROJECT_DIR$/src/ReversiCustom/SmartGuy.class" />
       <change beforePath="$PROJECT_DIR$/src/ReversiCustom/SmartGuy.java" afterPath="$PROJECT_DIR$/src/ReversiCustom/SmartGuy.java" />
+      <change beforePath="$PROJECT_DIR$/src/ReversiServer/GameLog.txt" afterPath="$PROJECT_DIR$/src/ReversiServer/GameLog.txt" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,8 +21,8 @@
       <file leaf-file-name="SmartGuy.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ReversiCustom/SmartGuy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="839">
-              <caret line="343" column="39" lean-forward="false" selection-start-line="343" selection-start-column="39" selection-end-line="343" selection-end-column="39" />
+            <state relative-caret-position="311">
+              <caret line="427" column="52" lean-forward="false" selection-start-line="427" selection-start-column="46" selection-end-line="427" selection-end-column="52" />
               <folding>
                 <element signature="e#8182#8183#0" expanded="true" />
                 <element signature="e#8246#8247#0" expanded="true" />
@@ -48,7 +51,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>myVa</find>
       <find>validMoves</find>
       <find>num</find>
       <find>state node create</find>
@@ -76,8 +78,9 @@
       <find>MAX_D</find>
       <find>round</find>
       <find>Color</find>
-      <find>MURDER</find>
       <find>MAX_</find>
+      <find>Murder</find>
+      <find>MURDER</find>
     </findStrings>
     <replaceStrings>
       <replace>SmartGuy</replace>
@@ -342,7 +345,7 @@
       <workItem from="1510626169554" duration="8092000" />
       <workItem from="1511214641390" duration="654000" />
       <workItem from="1511815530354" duration="98000" />
-      <workItem from="1512770449160" duration="5144000" />
+      <workItem from="1512770449160" duration="5395000" />
     </task>
     <task id="LOCAL-00001" summary="Now includes a custom, SmartGuy agent (currently just a copy of RandomGuy)">
       <created>1510126431114</created>
@@ -393,11 +396,18 @@
       <option name="project" value="LOCAL" />
       <updated>1512774724770</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="SmartGuy done got SMRTRer">
+      <created>1512777045499</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1512777045499</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59829000" />
+    <option name="totallyTimeSpent" value="60080000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
@@ -446,7 +456,8 @@
     <MESSAGE value="SmartGuy might work a bit better" />
     <MESSAGE value="SmartGuy done got SMRT" />
     <MESSAGE value="SmartGuy done got SMRTR" />
-    <option name="LAST_COMMIT_MESSAGE" value="SmartGuy done got SMRTR" />
+    <MESSAGE value="SmartGuy done got SMRTRer" />
+    <option name="LAST_COMMIT_MESSAGE" value="SmartGuy done got SMRTRer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -563,8 +574,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ReversiCustom/SmartGuy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="839">
-          <caret line="343" column="39" lean-forward="false" selection-start-line="343" selection-start-column="39" selection-end-line="343" selection-end-column="39" />
+        <state relative-caret-position="311">
+          <caret line="427" column="52" lean-forward="false" selection-start-line="427" selection-start-column="46" selection-end-line="427" selection-end-column="52" />
           <folding>
             <element signature="e#8182#8183#0" expanded="true" />
             <element signature="e#8246#8247#0" expanded="true" />

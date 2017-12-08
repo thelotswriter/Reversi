@@ -11,7 +11,7 @@ import java.util.List;
 
 class SmartGuy {
 
-    private final int SWITCH_ROUND = 46;
+    private final int SWITCH_ROUND = 50;
     private final int MAX_DEPTH = 6;
     private final int END_DEPTH = 14;
     private int maxDepth;
@@ -399,7 +399,7 @@ class SmartGuy {
                     alpha = Math.max(alpha, bestValMove[0]);
                     if(beta <= alpha)
                     {
-                        System.out.println("MURDER!!!!!");
+//                        System.out.println("MURDER!!!!!");
                         break;
                     }
                 }
@@ -425,7 +425,7 @@ class SmartGuy {
                     beta = Math.min(beta, bestValMove[0]);
                     if(beta <= alpha)
                     {
-                        System.out.println("MURDER!!!!!");
+//                        System.out.println("MURDER!!!!!");
                         break;
                     }
                 }
