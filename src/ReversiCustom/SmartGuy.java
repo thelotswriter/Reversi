@@ -341,7 +341,7 @@ class SmartGuy {
                 valMove[1] = -1;
 //                System.out.println("No valid moves. Return: " + valMove[0] + ", " + valMove[1]);
                 return valMove;
-            } else if(depth == MAX_DEPTH)
+            } else if(depth == maxDepth)
             {
                 double[] valMove = new double[2];
                 valMove[0] = heuristicVal();
