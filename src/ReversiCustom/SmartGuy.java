@@ -11,7 +11,10 @@ import java.util.List;
 
 class SmartGuy {
 
+    private final int SWITCH_ROUND = 46;
     private final int MAX_DEPTH = 6;
+    private final int END_DEPTH = 14;
+    private int maxDepth;
 
     public Socket s;
     public BufferedReader sin;
@@ -32,6 +35,7 @@ class SmartGuy {
 
     // main function that (1) establishes a connection with the server, and then plays whenever it is this player's turn
     public SmartGuy(int _me, String host) {
+        maxDepth = MAX_DEPTH;
         me = _me;
         if(me == 1)
         {
@@ -47,6 +51,11 @@ class SmartGuy {
         while (true) {
 //            System.out.println("Read");
             readMessage();
+            if(round == SWITCH_ROUND)
+            {
+                System.out.println("NOT MURDER!!!!!");
+                maxDepth = END_DEPTH;
+            }
 
             if (turn == me) {
 //                System.out.println("Move");
@@ -508,14 +517,14 @@ class SmartGuy {
         {
             double[] hWeights = new double[9];
             hWeights[0] = 0.1; // Score Difference
-            hWeights[1] = 30; // Corners
+            hWeights[1] = 300; // Corners
             hWeights[2] = 2; // Mobility
             hWeights[3] = 10; // My stabilitty
             hWeights[4] = 8; // Opponent's stability
-            hWeights[5] = 25; // X Points (me)
-            hWeights[6] = 25; // X Points (them)
-            hWeights[7] = 8; // C Points (me)
-            hWeights[8] = 8; // C Points (them)
+            hWeights[5] = 250; // C Points (me)
+            hWeights[6] = 250; // C Points (them)
+            hWeights[7] = 15; // X Points (me)
+            hWeights[8] = 15; // X Points (them)
             double h = hWeights[0] * calculateScoreDifference();
 //            System.out.println("h1: " + h);
             double h2 = hWeights[1] * calculateCorners();
