@@ -4,7 +4,6 @@
     <list default="true" id="a45bc7d0-f296-4bd8-b42d-3956a99b67ae" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/ReversiCustom/SmartGuy$StateNode.class" afterPath="$PROJECT_DIR$/src/ReversiCustom/SmartGuy$StateNode.class" />
-      <change beforePath="$PROJECT_DIR$/src/ReversiCustom/SmartGuy.class" afterPath="$PROJECT_DIR$/src/ReversiCustom/SmartGuy.class" />
       <change beforePath="$PROJECT_DIR$/src/ReversiCustom/SmartGuy.java" afterPath="$PROJECT_DIR$/src/ReversiCustom/SmartGuy.java" />
       <change beforePath="$PROJECT_DIR$/src/ReversiServer/GameLog.txt" afterPath="$PROJECT_DIR$/src/ReversiServer/GameLog.txt" />
     </list>
@@ -21,17 +20,14 @@
       <file leaf-file-name="SmartGuy.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/ReversiCustom/SmartGuy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="427" column="52" lean-forward="false" selection-start-line="427" selection-start-column="46" selection-end-line="427" selection-end-column="52" />
+            <state relative-caret-position="153">
+              <caret line="18" column="18" lean-forward="false" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
               <folding>
                 <element signature="e#8182#8183#0" expanded="true" />
                 <element signature="e#8246#8247#0" expanded="true" />
                 <element signature="method#calculateScoreDifference#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
                 <element signature="method#calculateCorners#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
-                <element signature="method#calculateStability#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
                 <element signature="method#checkStablePieces#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
-                <element signature="method#checkPieceStability#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
-                <element signature="method#checkPieceStability#1;class#StateNode#0;class#SmartGuy#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -40,7 +36,7 @@
       <file leaf-file-name="Reversi.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ReversiServer/Reversi.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="362">
+            <state relative-caret-position="969">
               <caret line="65" column="30" lean-forward="false" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="30" />
               <folding />
             </state>
@@ -51,8 +47,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>validMoves</find>
-      <find>num</find>
       <find>state node create</find>
       <find>Selection</find>
       <find>final</find>
@@ -81,6 +75,8 @@
       <find>MAX_</find>
       <find>Murder</find>
       <find>MURDER</find>
+      <find>MAX_Dept</find>
+      <find>calculateStability</find>
     </findStrings>
     <replaceStrings>
       <replace>SmartGuy</replace>
@@ -111,8 +107,8 @@
     <sorting>DEFINITION_ORDER</sorting>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-8" />
-    <option name="y" value="-8" />
+    <option name="x" value="2155" />
+    <option name="y" value="-24" />
     <option name="width" value="1936" />
     <option name="height" value="1056" />
   </component>
@@ -132,7 +128,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -180,9 +177,8 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="AndroidView" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -345,7 +341,8 @@
       <workItem from="1510626169554" duration="8092000" />
       <workItem from="1511214641390" duration="654000" />
       <workItem from="1511815530354" duration="98000" />
-      <workItem from="1512770449160" duration="5395000" />
+      <workItem from="1512770449160" duration="7734000" />
+      <workItem from="1513032941897" duration="2078000" />
     </task>
     <task id="LOCAL-00001" summary="Now includes a custom, SmartGuy agent (currently just a copy of RandomGuy)">
       <created>1510126431114</created>
@@ -403,41 +400,48 @@
       <option name="project" value="LOCAL" />
       <updated>1512777045499</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="SmartGuy done got SMRTRest">
+      <created>1512777264990</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1512777264990</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60080000" />
+    <option name="totallyTimeSpent" value="64497000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <frame x="1912" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32900432" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2675906" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.27025586" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32936078" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
@@ -457,7 +461,8 @@
     <MESSAGE value="SmartGuy done got SMRT" />
     <MESSAGE value="SmartGuy done got SMRTR" />
     <MESSAGE value="SmartGuy done got SMRTRer" />
-    <option name="LAST_COMMIT_MESSAGE" value="SmartGuy done got SMRTRer" />
+    <MESSAGE value="SmartGuy done got SMRTRest" />
+    <option name="LAST_COMMIT_MESSAGE" value="SmartGuy done got SMRTRest" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -482,91 +487,14 @@
             <element signature="e#8246#8247#0" expanded="true" />
             <element signature="method#calculateScoreDifference#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
             <element signature="method#calculateCorners#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
-            <element signature="method#calculateStability#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
             <element signature="method#checkStablePieces#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
-            <element signature="method#checkPieceStability#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
-            <element signature="method#checkPieceStability#1;class#StateNode#0;class#SmartGuy#0" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ReversiCustom/SmartGuy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#8182#8183#0" expanded="true" />
-            <element signature="e#8246#8247#0" expanded="true" />
-            <element signature="method#calculateScoreDifference#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
-            <element signature="method#calculateCorners#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
-            <element signature="method#calculateStability#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
-            <element signature="method#checkStablePieces#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
-            <element signature="method#checkPieceStability#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
-            <element signature="method#checkPieceStability#1;class#StateNode#0;class#SmartGuy#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ReversiCustom/SmartGuy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="e#8182#8183#0" expanded="true" />
-            <element signature="e#8246#8247#0" expanded="true" />
-            <element signature="method#calculateScoreDifference#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
-            <element signature="method#calculateCorners#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
-            <element signature="method#calculateStability#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
-            <element signature="method#checkStablePieces#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
-            <element signature="method#checkPieceStability#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
-            <element signature="method#checkPieceStability#1;class#StateNode#0;class#SmartGuy#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiRandom_Java/RandomGuy.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiRandom_Java/RandomGuy.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiRandom_Java/RandomGuy.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiRandom_Java/RandomGuy.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiServer/Reversi.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiServer/Reversi.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiServer/Reversi.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiServer/Reversi.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiRandom_Java/RandomGuy.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiRandom_Java/RandomGuy.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiRandom_Java/RandomGuy.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiRandom_Java/RandomGuy.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiRandom_Java/RandomGuy.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiRandom_Java/RandomGuy.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiServer/Reversi.java" />
-    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
-    <entry file="file://$PROJECT_DIR$/src/ReversiHuman/Human.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="306">
-          <caret line="34" column="19" lean-forward="true" selection-start-line="34" selection-start-column="19" selection-end-line="34" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ReversiServer/Reversi.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="362">
+        <state relative-caret-position="969">
           <caret line="65" column="30" lean-forward="false" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="30" />
           <folding />
         </state>
@@ -574,17 +502,104 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ReversiCustom/SmartGuy.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="427" column="52" lean-forward="false" selection-start-line="427" selection-start-column="46" selection-end-line="427" selection-end-column="52" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#8182#8183#0" expanded="true" />
             <element signature="e#8246#8247#0" expanded="true" />
             <element signature="method#calculateScoreDifference#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
             <element signature="method#calculateCorners#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
-            <element signature="method#calculateStability#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
             <element signature="method#checkStablePieces#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
-            <element signature="method#checkPieceStability#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
-            <element signature="method#checkPieceStability#1;class#StateNode#0;class#SmartGuy#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ReversiCustom/SmartGuy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#8182#8183#0" expanded="true" />
+            <element signature="e#8246#8247#0" expanded="true" />
+            <element signature="method#calculateScoreDifference#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
+            <element signature="method#calculateCorners#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
+            <element signature="method#checkStablePieces#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ReversiCustom/SmartGuy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="e#8182#8183#0" expanded="true" />
+            <element signature="e#8246#8247#0" expanded="true" />
+            <element signature="method#calculateScoreDifference#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
+            <element signature="method#calculateCorners#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
+            <element signature="method#checkStablePieces#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiRandom_Java/RandomGuy.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiRandom_Java/RandomGuy.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiRandom_Java/RandomGuy.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiRandom_Java/RandomGuy.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiServer/Reversi.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiServer/Reversi.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiServer/Reversi.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiServer/Reversi.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiRandom_Java/RandomGuy.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiRandom_Java/RandomGuy.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiRandom_Java/RandomGuy.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiRandom_Java/RandomGuy.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiRandom_Java/RandomGuy.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiRandom_Java/RandomGuy.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiServer/Reversi.java" />
+    <entry file="file://$PROJECT_DIR$/ReversiCustom/SmartGuy.java" />
+    <entry file="file://$PROJECT_DIR$/src/ReversiServer/Reversi.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="969">
+          <caret line="65" column="30" lean-forward="false" selection-start-line="65" selection-start-column="24" selection-end-line="65" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ReversiHuman/Human.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="35" column="8" lean-forward="false" selection-start-line="35" selection-start-column="8" selection-end-line="35" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ReversiCustom/SmartGuy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="18" column="18" lean-forward="false" selection-start-line="18" selection-start-column="18" selection-end-line="18" selection-end-column="18" />
+          <folding>
+            <element signature="e#8182#8183#0" expanded="true" />
+            <element signature="e#8246#8247#0" expanded="true" />
+            <element signature="method#calculateScoreDifference#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
+            <element signature="method#calculateCorners#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
+            <element signature="method#checkStablePieces#0;class#StateNode#0;class#SmartGuy#0" expanded="false" />
           </folding>
         </state>
       </provider>

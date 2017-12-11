@@ -643,6 +643,13 @@ class SmartGuy {
                         if(state[i][j] == me)
                         {
                             myVal++;
+                            if(i == 7 && j == 0)
+                            {
+                                check70 = false;
+                            } else if(i == 7 && j == 7)
+                            {
+                                check77 = false;
+                            }
                         } else
                         {
                             maxDist = j - 1;
@@ -653,20 +660,84 @@ class SmartGuy {
                     {
                         check07 = false;
                     }
-
                 }
             }
             if(state[0][7] == me && check07)
             {
-                myVal++;
+                int maxDist = -1;
+                for(int i = 0; i < 8; i++)
+                {
+                    if(state[i][7] != me)
+                    {
+                        break;
+                    }
+                    for(int j = 7; j > maxDist; j--)
+                    {
+                        if(state[i][j] == me)
+                        {
+                            myVal++;
+                            if(i == 7 && j == 0)
+                            {
+                                check70 = false;
+                            } else if(i == 7 && j == 7)
+                            {
+                                check77 = false;
+                            }
+                        } else
+                        {
+                            maxDist = j - 1;
+                            break;
+                        }
+                    }
+                }
             }
             if(state[7][0] == me && check70)
             {
-                myVal++;
+                int maxDist = 8;
+                for(int i = 7; i > -1; i--)
+                {
+                    if(state[i][0] != me)
+                    {
+                        break;
+                    }
+                    for(int j = 0; j < maxDist; j++)
+                    {
+                        if(state[i][j] == me)
+                        {
+                            myVal++;
+                            if(i == 7 && j == 7)
+                            {
+                                check77 = false;
+                            }
+                        } else
+                        {
+                            maxDist = j - 1;
+                            break;
+                        }
+                    }
+                }
             }
             if(state[7][7] == me && check77)
             {
-                myVal++;
+                int maxDist = -1;
+                for(int i = 7; i > -1; i--)
+                {
+                    if(state[i][7] != me)
+                    {
+                        break;
+                    }
+                    for(int j = 7; j > maxDist; j--)
+                    {
+                        if(state[i][j] == me)
+                        {
+                            myVal++;
+                        } else
+                        {
+                            maxDist = j - 1;
+                            break;
+                        }
+                    }
+                }
             }
             return myVal;
         }
